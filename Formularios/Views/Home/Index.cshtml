@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <h2>Formularios</h2>
+    </div>
+
+   <div class="row"> 
+       <div class="form-group">
+        <label>NOMBRE DE USUARIO</label>
+        @Html.TextBox("txtUsername","",new {@class="form-control"})
+     </div>
+
+     <div class="form-group">
+         @Html.Label("lblContraseña","Contaseña")
+        @Html.TextBox("txtContraseña","",new {@class="form-control"})
+     </div>
+
+        <div class="form-group">
+        @Html.Label("lblGenero","Genero")
+        @Html.RadioButton("Genero", "Masculino", true, new{id="masculino"})
+        Masculino
+        @Html.RadioButton("Genero", "Femenino", false, new{id="Femenino"})
+        Femenino
+        </div>
+        
+       
+       <div class="form-group">
+        @Html.Label("lblDireccion","Direccion")
+        @Html.TextArea("txtDireccion","",new {@class="form-control"})
+        </div>
+        
+        <div class="form-group">
+        @Html.Label("lblPasatiempos","Pasatiempos")
+        @Html.CheckBox("Bailar")
+        @Html.Label("lblBailar","Bailar")
+        @Html.CheckBox("Correr")
+        @Html.Label("lblCorrer","Correr")
+        @Html.CheckBox("Escalar")
+        @Html.Label("lblEscalar","Escalar")
+        @Html.CheckBox("Peliculas")
+        @Html.Label("lblPeliculas","Peliculas")
+        </div>
+
+        <div class="form-group">
+        @Html.Label("lblCursos","Cursos")
+        @{
+            IEnumerable<string> strList = new List<String> { "POO", "TW", "MAT3", "FIS1" };
+        }
+        @Html.DropDownList("ddlCurso", new SelectList(strList,
+            strList.FirstOrDefault()),"--Seleccionar curso---")
+
+        </div>
+
+    @Html.Label("lblConocimientos","Conocimientos")
+    <div class="form-group">
+       
+        @Html.ListBox("Seleccionar habilidades", new List<SelectListItem>{
+        new SelectListItem {Text = "C #", Value = "1"},
+        new SelectListItem {Text = "ASP.NET", Value = "2"},
+        new SelectListItem {Text = "ASP.NET Core", Value = "3"},
+        new SelectListItem {Text = "Azure", Value = "4"}
+        })
+
+    </div>
+
+    <div class="container-fluid h-100">
+        <div class="row w-100 align-items-center">
+            <div class="col text-center">
+                <button type="button" class="btn btn-success">Enviar</button>
+            </div>
+        </div>
+
+
+    </div>
+   
+    
+
+
+
+
